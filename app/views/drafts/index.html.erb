@@ -6,6 +6,7 @@
   <tr>
     <td><%= tweet.original_timestamp %></td>
     <td><%= tweet.text %></td>
+    <td><%= link_to "See whole thread", draft_path(id: tweet.id) %></td>
   </tr>
 
   <% end %>

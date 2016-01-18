@@ -37,4 +37,15 @@ describe Tweet do
       expect(Tweet.with_replies).to eq([storm, first_reply])
     end
   end
+
+  describe "#replies" do
+    it "returns direct replies to this tweet" do
+      create(:tweet)
+      storm = create(:tweet)
+      first_level_reply = create(:reply, in_reply_to_identifier: storm.tweet_identifier)
+      second_level_reply = create(:reply, in_reply_to_identifier: first_level_reply.tweet_identifier)
+
+      expect(storm.replies).to eq([first_level_reply])
+    end
+  end
 end

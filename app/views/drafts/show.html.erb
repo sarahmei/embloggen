@@ -1,0 +1,15 @@
+<h1>Show Thread</h1>
+
+<table>
+  <tr>
+    <td><%= @root.original_timestamp %></td>
+    <td><%= @root.text %></td>
+  </tr>
+
+  <% @reply_chain.each do |tweet| %>
+    <tr>
+      <td><%= tweet.original_timestamp %></td>
+      <td><%= tweet.text %></td>
+    </tr>
+  <% end %>
+</table>

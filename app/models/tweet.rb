@@ -2,6 +2,10 @@ class Tweet < ActiveRecord::Base
   validates_presence_of :tweet_identifier, :original_timestamp, :original_client, :text
   validates_uniqueness_of :tweet_identifier
 
+  def replies
+    Tweet.where(in_reply_to_identifier: self.tweet_identifier)
+  end
+
   def self.originating
     where("tweets.in_reply_to_identifier IS NULL AND tweets.retweeted_tweet_identifier IS NULL")
   end

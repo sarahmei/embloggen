@@ -15,5 +15,11 @@ FactoryGirl.define do
       sequence(:retweeted_tweet_user_identifier) { |n| "rt_user_identifier#{n}" }
       retweeted_tweet_original_timestamp { 4.days.ago }
     end
+
+    factory :tweet_storm do
+      after(:create) do |tweet, evaluator|
+        create(:reply, in_reply_to_identifier: tweet.tweet_identifier)
+      end
+    end
   end
 end
