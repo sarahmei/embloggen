@@ -2,7 +2,7 @@
 
 A Rails application for turning tweetstorms into blog posts.
 
-# Setup
+### How to get it going locally
 
   1. Download your tweet archive from Twitter. You'll need the tweets.csv file that comes in that package.
   1. Clone the repo.
@@ -18,3 +18,15 @@ A Rails application for turning tweetstorms into blog posts.
   1. Exit the Rails console.
   1. `rails server`
   1. Visit http://localhost:3000 to see a list of all the roots of your tweetstorms.
+  1. Choose a tweetstorm and select "See whole storm" to see the reply chain rooted at that tweet.
+  1. From that page, select "Make a draft" at the bottom. This puts all the tweets in that storm into a textbox, separated by newlines, where they can be copied out into a real editor somewhere.
+
+### Wish List
+
+  1. Less ugly.
+  1. Connect to Medium to create draft there.
+
+### License
+
+MIT - see LICENSE.md.
+
