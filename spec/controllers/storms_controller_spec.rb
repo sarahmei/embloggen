@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe DraftsController do
+describe StormsController do
   describe "GET #index" do
     it "succeeds" do
       get :index

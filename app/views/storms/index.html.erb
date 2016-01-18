@@ -1,4 +1,4 @@
-<h1>Drafts</h1>
+<h1>Storms</h1>
 
 <table>
   <% @originating_tweets.each do |tweet| %>
@@ -6,7 +6,7 @@
   <tr>
     <td><%= tweet.original_timestamp %></td>
     <td><%= tweet.text %></td>
-    <td><%= link_to "See whole thread", draft_path(id: tweet.id) %></td>
+    <td><%= link_to "See whole storm", storm_path(id: tweet.id) %></td>
   </tr>
 
   <% end %>

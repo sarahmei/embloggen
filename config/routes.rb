@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :drafts, only: [:index, :show]
+  resources :storms, only: [:index, :show]
 end
