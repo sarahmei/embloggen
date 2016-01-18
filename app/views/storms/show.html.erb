@@ -1,14 +1,14 @@
-<h1>Show Storm</h1>
+<h1>Show Tweetstorm</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
-    <td><%= @root.original_timestamp %></td>
+    <td><%= @root.formatted_original_timestamp %></td>
     <td><%= @root.text %></td>
   </tr>
 
   <% @reply_chain.each do |tweet| %>
     <tr>
-      <td><%= tweet.original_timestamp %></td>
+      <td><%= tweet.formatted_original_timestamp %></td>
       <td><%= tweet.text %></td>
     </tr>
   <% end %>

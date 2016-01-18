@@ -4,15 +4,15 @@
 <%= @draft %>
 </textarea>
 
-<table>
+<table class="table table-striped">
   <tr>
-    <td><%= @root.original_timestamp %></td>
+    <td><%= @root.formatted_original_timestamp %></td>
     <td><%= @root.text %></td>
   </tr>
 
   <% @reply_chain.each do |tweet| %>
     <tr>
-      <td><%= tweet.original_timestamp %></td>
+      <td><%= tweet.formatted_original_timestamp %></td>
       <td><%= tweet.text %></td>
     </tr>
   <% end %>

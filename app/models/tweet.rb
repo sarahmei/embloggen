@@ -17,6 +17,10 @@ class Tweet < ActiveRecord::Base
     return chain
   end
 
+  def formatted_original_timestamp
+    self.original_timestamp.in_time_zone('Pacific Time (US & Canada)').to_formatted_s(:long)
+  end
+
   def self.originating
     where("tweets.in_reply_to_identifier IS NULL AND tweets.retweeted_tweet_identifier IS NULL")
   end

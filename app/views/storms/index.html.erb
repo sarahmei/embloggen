@@ -1,10 +1,10 @@
-<h1>Storms</h1>
+<h1>Go lead some thoughts:</h1>
 
-<table>
+<table class="table table-striped">
   <% @originating_tweets.each do |tweet| %>
 
   <tr>
-    <td><%= tweet.original_timestamp %></td>
+    <td><%= tweet.formatted_original_timestamp %></td>
     <td><%= tweet.text %></td>
     <td><%= link_to "See whole storm", storm_path(id: tweet.id) %></td>
   </tr>
