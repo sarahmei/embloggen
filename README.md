@@ -24,7 +24,9 @@ A Rails application for turning tweetstorms into blog posts.
 ### Wish List
 
   1. Less ugly.
-  1. Connect to Medium to create draft there.
+  1. Connect to Medium and create a draft there.
+  1. Multiple user support.
+  1. Connect to the Twitter API to see mentions (from other people) alongside the tweetstorm.
 
 ### License
 
