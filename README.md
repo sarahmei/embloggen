@@ -20,14 +20,29 @@ A Rails application for turning tweetstorms into blog posts.
   1. Visit http://localhost:3000 to see a list of all the roots of your tweetstorms.
   1. Choose a tweetstorm and select "See whole storm" to see the reply chain rooted at that tweet.
   1. From that page, select "Make a draft" at the bottom. This puts all the tweets in that storm into a textbox, separated by newlines, where they can be copied out into a real editor somewhere.
+  
+If you'd like to be able to add tweets that are newer than your archive to the database, you'll additionally need to do the following:
 
+  1. Go to https://apps.twitter.com/app/new to make a new twitter app for your local version of Embloggen. You don't need to give it a real website and you can leave callback URL blank.
+  1. Once you've created an app, you'll see its consumer key and consumer secret. Copy those into your `~/.bash-profile`:
+```
+export EMBLOGGEN_TWITTER_CONSUMER_KEY="your consumer key here"
+export EMBLOGGEN_TWITTER_CONSUMER_SECRET="your consumer secret here"
+```
+  1. Lower down on the management page you'll see a way to create an access token and access token secret. Do that and then copy them into your `~/.bash-profile` too:
+```
+export EMBLOGGEN_TWITTER_ACCESS_TOKEN="your access token here"
+export EMBLOGGEN_TWITTER_ACCESS_TOKEN_SECRET="your access token secret here"
+```
+  1. You may need to open a new shell to get those exports. Once you have them though you'll be able to use the "Refresh my thoughts" link on the homepage to fetch new tweets.
+    
 ### Wish List
 
   1. Less ugly.
   1. Mark tweetstorms Done or Not Interested or something, so they don't show up in the list anymore.
   1. Connect to Medium and create a draft there.
-  1. Update the archive via API.
-  1. Import/update through the UI.
+  1. ~~Update the archive via API.~~
+  1. Import ~~/update~~ through the UI.
   1. See other people's recent tweetstorms via API.
   1. See mentions (from other people) alongside the tweetstorm, via API.
   1. Support multiple users?

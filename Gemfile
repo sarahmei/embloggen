@@ -6,6 +6,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
+gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
