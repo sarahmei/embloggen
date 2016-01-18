@@ -24,9 +24,13 @@ A Rails application for turning tweetstorms into blog posts.
 ### Wish List
 
   1. Less ugly.
+  1. Mark tweetstorms Done or Not Interested or something, so they don't show up in the list anymore.
   1. Connect to Medium and create a draft there.
-  1. Multiple user support.
-  1. Connect to the Twitter API to see mentions (from other people) alongside the tweetstorm.
+  1. Update the archive via API.
+  1. Import/update through the UI.
+  1. See other people's recent tweetstorms via API.
+  1. See mentions (from other people) alongside the tweetstorm, via API.
+  1. Support multiple users?
 
 ### License
 
