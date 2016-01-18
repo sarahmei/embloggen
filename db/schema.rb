@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20160117222550) do
     t.datetime "original_timestamp"
     t.string   "original_client"
     t.text     "text"
-    t.string   "137128333140963328"
     t.string   "retweeted_tweet_user_identifier"
     t.datetime "retweeted_tweet_original_timestamp"
     t.text     "expanded_urls"
