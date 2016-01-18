@@ -1,4 +1,8 @@
-<h1>Show Storm</h1>
+<h1>New draft from storm</h1>
+
+<textarea rows="<%= @reply_chain.count * 4 %>" cols="80">
+<%= @draft %>
+</textarea>
 
 <table>
   <tr>
@@ -13,5 +17,3 @@
     </tr>
   <% end %>
 </table>
-
-<%= link_to "Make a draft", new_draft_path(root_id: @root.id) %>

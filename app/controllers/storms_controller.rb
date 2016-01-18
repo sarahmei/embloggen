@@ -6,13 +6,7 @@ class StormsController < ApplicationController
 
   def show
     @root = Tweet.find(params[:id])
-    @reply_chain = []
-    current_reply_set = @root.replies
-    while current_reply_set.any?
-      first_reply = current_reply_set.first
-      @reply_chain << first_reply
-      current_reply_set = first_reply.replies
-    end
+    @reply_chain = @root.reply_chain
     render :show
   end
 end

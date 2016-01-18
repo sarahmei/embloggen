@@ -3,7 +3,7 @@ FactoryGirl.define do
     sequence(:tweet_identifier) { |n| "identifier#{n}" }
     original_timestamp { 2.days.ago }
     original_client { "discontinued awesome client" }
-    text { "poopin" }
+    sequence(:text) { |n| "this is tweet #{n}" }
 
     factory :reply do
       sequence(:in_reply_to_identifier) { |n| "reply_identifier#{n}" }

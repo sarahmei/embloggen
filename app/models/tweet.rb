@@ -6,6 +6,17 @@ class Tweet < ActiveRecord::Base
     Tweet.where(in_reply_to_identifier: self.tweet_identifier)
   end
 
+  def reply_chain
+    chain = []
+    current_reply_set = self.replies
+    while current_reply_set.any?
+      first_reply = current_reply_set.first
+      chain << first_reply
+      current_reply_set = first_reply.replies
+    end
+    return chain
+  end
+
   def self.originating
     where("tweets.in_reply_to_identifier IS NULL AND tweets.retweeted_tweet_identifier IS NULL")
   end
