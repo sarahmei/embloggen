@@ -54,3 +54,6 @@ export EMBLOGGEN_TWITTER_ACCESS_TOKEN_SECRET="your access token secret here"
 
 MIT - see LICENSE.md.
 
+### Code of Conduct
+
+The project has one! Please see CODE_OF_CONDUCT.md for details. By participating in this project, you agree to abide by its terms.
