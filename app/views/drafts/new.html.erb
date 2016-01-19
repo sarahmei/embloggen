@@ -7,13 +7,13 @@
 <table class="table table-striped">
   <tr>
     <td><%= @root.formatted_original_timestamp %></td>
-    <td><%= @root.text %></td>
+    <td><%= @root.formatted_text %></td>
   </tr>
 
   <% @reply_chain.each do |tweet| %>
     <tr>
       <td><%= tweet.formatted_original_timestamp %></td>
-      <td><%= tweet.text %></td>
+      <td><%= tweet.formatted_text %></td>
     </tr>
   <% end %>
 </table>

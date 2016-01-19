@@ -17,6 +17,10 @@ class Tweet < ActiveRecord::Base
     return chain
   end
 
+  def formatted_text
+    CGI.unescapeHTML(self.text)
+  end
+
   def formatted_original_timestamp
     self.original_timestamp.in_time_zone('Pacific Time (US & Canada)').to_formatted_s(:long)
   end
