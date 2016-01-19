@@ -1,6 +1,6 @@
 # Embloggen
 
-A Rails application for turning tweetstorms into blog posts.
+A Rails application for turning your Claritweetstorms into blog posts.
 
 ### How to get it going locally
 
@@ -17,7 +17,10 @@ A Rails application for turning tweetstorms into blog posts.
   1. In the console, run `TweetImporter.load_archive("/full/path/to/tweets.csv")`.
   1. Exit the Rails console.
   1. `rails server`
-  1. Visit http://localhost:3000 to see a list of all the roots of your tweetstorms.
+  1. Visit http://localhost:3000 to see a list of all the roots of your tweetstorms. Roots are defined as tweets that are:
+      * from you
+      * not in reply to another tweet
+      * that you replied to 
   1. Choose a tweetstorm and select "See whole storm" to see the reply chain rooted at that tweet.
   1. From that page, select "Make a draft" at the bottom. This puts all the tweets in that storm into a textbox, separated by newlines, where they can be copied out into a real editor somewhere.
   
