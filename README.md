@@ -1,6 +1,6 @@
 # Embloggen
 
-A Rails application for turning your Claritweetstorms into blog posts.
+A Rails application for turning your tweetstorms into blog posts.
 
 ### How to get it going locally
 
