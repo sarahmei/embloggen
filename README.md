@@ -13,17 +13,16 @@ A Rails application for turning your tweetstorms into blog posts.
   1. Edit `config/database.yml` if you don't want to use the default pg user & password.
   1. `rake db:create`
   1. `rake db:migrate`
-  1. `rails console`
-  1. In the console, run `TweetImporter.load_archive("/full/path/to/tweets.csv")`.
+  1. `rake import_tweets['path/to/tweets.csv']` replacing 'path/to/tweets.csv' with the actual path to the CSV file.
   1. Exit the Rails console.
   1. `rails server`
   1. Visit http://localhost:3000 to see a list of all the roots of your tweetstorms. Roots are defined as tweets that are:
       * from you
       * not in reply to another tweet
-      * that you replied to 
+      * that you replied to
   1. Choose a tweetstorm and select "See whole storm" to see the reply chain rooted at that tweet.
   1. From that page, select "Make a draft" at the bottom. This puts all the tweets in that storm into a textbox, separated by newlines, where they can be copied out into a real editor somewhere.
-  
+
 If you'd like to be able to add tweets that are newer than your archive to the database, you'll additionally need to do the following:
 
   1. Go to https://apps.twitter.com/app/new to make a new twitter app for your local version of Embloggen. You don't need to give it a real website and you can leave callback URL blank.
@@ -38,7 +37,7 @@ export EMBLOGGEN_TWITTER_ACCESS_TOKEN="your access token here"
 export EMBLOGGEN_TWITTER_ACCESS_TOKEN_SECRET="your access token secret here"
 ```
   1. You may need to open a new shell to get those exports. Once you have them though you'll be able to use the "Refresh my thoughts" link on the homepage to fetch new tweets.
-    
+
 ### Wish List
 
   1. Less ugly.
