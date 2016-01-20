@@ -4,7 +4,7 @@ A Rails application for turning your tweetstorms into blog posts.
 
 ### How to get it going locally
 
-  1. Download your tweet archive from Twitter. You'll need the tweets.csv file that comes in that package.
+  1. Download your tweet archive from Twitter from [Account Settings][1]. You'll need the tweets.csv file that comes in that package.
   1. Clone the repo.
   1. Install Ruby 2.2.3.
   1. Install postgresql.
@@ -56,3 +56,5 @@ MIT - see LICENSE.md.
 ### Code of Conduct
 
 The project has one! Please see CODE_OF_CONDUCT.md for details. By participating in this project, you agree to abide by its terms.
+
+[1]: https://twitter.com/settings/account
