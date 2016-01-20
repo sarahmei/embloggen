@@ -14,7 +14,6 @@ A Rails application for turning your tweetstorms into blog posts.
   1. `rake db:create`
   1. `rake db:migrate`
   1. `rake import_tweets['path/to/tweets.csv']` replacing 'path/to/tweets.csv' with the actual path to the CSV file.
-  1. Exit the Rails console.
   1. `rails server`
   1. Visit http://localhost:3000 to see a list of all the roots of your tweetstorms. Roots are defined as tweets that are:
       * from you
