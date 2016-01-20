@@ -40,7 +40,7 @@ export EMBLOGGEN_TWITTER_ACCESS_TOKEN_SECRET="your access token secret here"
 ### Wish List
 
   1. Less ugly.
-  1. Mark tweetstorms Not Interested or "I've already led those thoughts", so they don't show up in the list anymore.
+  1. ~~Mark tweetstorms Not Interested or "I've already led those thoughts", so they don't show up in the list anymore.~~
   1. Save/edit a draft attached to a storm.
   1. See back versions of a saved draft.
   1. Connect to Medium to create a draft there.

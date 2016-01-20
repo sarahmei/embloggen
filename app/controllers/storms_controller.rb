@@ -1,6 +1,6 @@
 class StormsController < ApplicationController
   def index
-    @originating_tweets = Tweet.originating.with_replies.order(original_timestamp: :desc)
+    @originating_tweets = Tweet.active_tweet_storms.order(original_timestamp: :desc)
     render :index
   end
 
@@ -8,5 +8,12 @@ class StormsController < ApplicationController
     @root = Tweet.find(params[:id])
     @reply_chain = @root.reply_chain
     render :show
+  end
+
+  def destroy
+    root = Tweet.find(params[:id])
+    root.hidden = true
+    root.save!
+    redirect_to storms_path
   end
 end

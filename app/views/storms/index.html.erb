@@ -6,6 +6,7 @@
   <tr>
     <td><%= tweet.formatted_original_timestamp %></td>
     <td><%= tweet.formatted_text %></td>
+    <td><%= link_to "Hide", storm_path(id: tweet.id), method: :delete %></td>
     <td><%= link_to "See whole storm", storm_path(id: tweet.id) %></td>
   </tr>
 

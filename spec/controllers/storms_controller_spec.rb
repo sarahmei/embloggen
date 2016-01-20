@@ -49,4 +49,21 @@ describe StormsController do
       expect(assigns(:reply_chain)).to eq([first_reply, second_reply, third_reply])
     end
   end
+
+  describe "DELETE #destroy" do
+    let(:root) { create(:tweet_storm) }
+
+    it "redirects to the index" do
+      delete :destroy, id: root.id
+      expect(response).to redirect_to storms_path
+    end
+
+    it "marks the tweet hidden" do
+      expect {
+        delete :destroy, id: root.id
+      }.to change {
+        root.reload.hidden?
+      }.from(false).to(true)
+    end
+  end
 end

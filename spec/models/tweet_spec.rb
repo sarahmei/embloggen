@@ -48,4 +48,20 @@ describe Tweet do
       expect(storm.replies).to eq([first_level_reply])
     end
   end
+
+  describe ".active_tweet_storms" do
+    it "returns originating tweets with replies" do
+      create(:tweet)
+      storm = create(:tweet_storm)
+
+      expect(Tweet.active_tweet_storms).to eq([storm])
+    end
+
+    it "does not include hidden tweets" do
+      create(:tweet_storm, hidden: true)
+      storm = create(:tweet_storm)
+
+      expect(Tweet.active_tweet_storms).to eq([storm])
+    end
+  end
 end
