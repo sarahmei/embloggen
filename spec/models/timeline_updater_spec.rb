@@ -34,11 +34,6 @@ describe TimelineUpdater do
                      ])
     end
 
-    it "calls the twitter api" do
-      expect_any_instance_of(Twitter::REST::Client).to receive(:user_timeline).and_return([])
-      TimelineUpdater.new.run
-    end
-
     it "makes tweets from the api response" do
       expect {
         TimelineUpdater.new.run
@@ -77,6 +72,56 @@ describe TimelineUpdater do
         expect {
           TimelineUpdater.new.run
         }.to_not change { @tweet.reload.text }
+      end
+    end
+
+    describe "how it uses the twitter api" do
+      it "calls the twitter api" do
+        expect_any_instance_of(Twitter::REST::Client).to receive(:user_timeline).and_return([])
+        TimelineUpdater.new.run
+      end
+
+      it "asks for 200 tweets" do
+        expect_any_instance_of(Twitter::REST::Client).to receive(:user_timeline)
+                                                           .with(hash_including(count: 200))
+                                                           .and_return([])
+        TimelineUpdater.new.run
+      end
+
+      context "when no tweet identifier is provided" do
+        context "and there's at least one tweet in the db" do
+          let(:tweet) { create(:tweet) }
+
+          it "asks for tweets that are newer than the most recent in the database" do
+            allow(Tweet).to receive(:most_recent).and_return(tweet)
+
+            expect_any_instance_of(Twitter::REST::Client).to receive(:user_timeline)
+                                                               .with(hash_including(since_id: tweet.tweet_identifier))
+                                                               .and_return([])
+            TimelineUpdater.new.run
+          end
+        end
+
+        context "and this is our first run" do
+          it "does not specify a starting point for tweets" do
+            expect_any_instance_of(Twitter::REST::Client).to receive(:user_timeline)
+                                                               .with(hash_including(since_id: nil))
+                                                               .and_return([])
+            TimelineUpdater.new.run
+          end
+        end
+      end
+
+      context "when a tweet identifier is provided" do
+        it "asks for tweets since that tweet" do
+          2.times { create(:tweet) }
+          specified_tweet = create(:tweet, original_timestamp: 4.months.ago)
+
+          expect_any_instance_of(Twitter::REST::Client).to receive(:user_timeline)
+                                                             .with(hash_including(since_id: specified_tweet.tweet_identifier))
+                                                             .and_return([])
+          TimelineUpdater.new(since: specified_tweet).run
+        end
       end
     end
   end
