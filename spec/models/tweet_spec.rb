@@ -16,6 +16,17 @@ describe Tweet do
     expect(create(:tweet)).to be_valid
   end
 
+  describe ".most_recent" do
+    it "returns the tweet with the most recent original timestamp" do
+      create(:tweet, original_timestamp: 4.weeks.ago)
+      create(:tweet, original_timestamp: 3.weeks.ago)
+      most_recent = create(:tweet, original_timestamp: 1.week.ago)
+      create(:tweet, original_timestamp: 2.weeks.ago)
+
+      expect(Tweet.most_recent).to eq(most_recent)
+    end
+  end
+
   describe ".originating" do
     it "returns tweets that are not replies to other tweets" do
       2.times { create(:reply) }

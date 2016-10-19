@@ -2,6 +2,10 @@ class Tweet < ActiveRecord::Base
   validates_presence_of :tweet_identifier, :original_timestamp, :original_client, :text
   validates_uniqueness_of :tweet_identifier
 
+  def self.most_recent
+    order(original_timestamp: :desc).limit(1).first
+  end
+
   def self.originating
     where("tweets.in_reply_to_identifier IS NULL AND tweets.retweeted_tweet_identifier IS NULL")
   end
